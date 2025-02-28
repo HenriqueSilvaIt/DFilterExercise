@@ -1,30 +1,42 @@
+
+import { ProductDTO } from '../../models/product';
 import './styel.css'
 
-export default function CardListing() {
+type Props = {
+    products: ProductDTO;
+}
+
+
+
+export default function CardListing({ products } : Props) {
 
     return (
 
         <section>
             <div className="d-card-listing d-mt20 d-container">
                 <div className="d-card-listing-details">
-                    PC Gamer Pro
-                    <p>R$ 1200.00</p>
+                    {products.name}
+                    <p>R$ {products.price.toFixed(2)}</p>
                 </div>
                 <div className="d-card-listing-details">
-                    PC Gamer Pro
-                    <p>R$ 1200.00</p>
+                    {products.name}
+                    <p>R$ {products.price.toFixed(2)}</p>
                 </div>
                 <div className="d-card-listing-details">
-                    PC Gamer Pro
-                    <p>R$ 1200.00</p>
+                    {products.name}
+                    <p>R$ {products.price.toFixed(2)}</p>
                 </div>
                 <div className="d-card-listing-details">
-                    PC Gamer Pro
-                    <p>R$ 1200.00</p>
+                    {products.name}
+                    <p>R$ {products.price.toFixed(2)}</p>
                 </div>
                 <div className="d-card-listing-details">
-                    PC Gamer Pro
-                    <p>R$ 1200.00</p>
+                    {products.name} {products.id}
+                    <p>R$ {products.price.toFixed(2)}</p>
+                </div>
+                <div className="d-card-listing-details">
+                    {products.name}
+                    <p>R$ {products.price.toFixed(2)}</p>
                 </div>
             </div>
         </section>
