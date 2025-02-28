@@ -1,0 +1,16 @@
+
+.d-header {
+    height: 70px;
+    background-color: var(--dcolor-bg-header);
+    color: var(--dcolor-font-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}

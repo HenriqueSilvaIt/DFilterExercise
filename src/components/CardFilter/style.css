@@ -1,0 +1,49 @@
+
+
+.d-card-filter{
+
+    background-color: var(--dcolor-bg-card);
+    height: 200px;
+    width: 960px;
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+}
+
+.d-card-details{
+    margin-left: 20px;
+}
+
+
+.d-input input {
+
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--dcolor-placeholder);
+    padding: 10x 0 10px 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;;
+}
+
+.d-input ::placeholder {
+    color: var(--dcolor-font-tertiary);
+    font-size: 16px;
+
+}
+.d-input input:focus {
+    outline: none;
+}
+
+.d-btn-filter {
+
+    width: 200px;
+    height: 40px;
+    background-color: var(--dcolor-btn);
+    border-radius: 5px;
+    color: var(--dcolor-font-primary);
+    font-weight: 700;
+    cursor: pointer;
+    border: solid var(--dcolor-border);
+}

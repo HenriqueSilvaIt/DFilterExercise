@@ -1,11 +1,19 @@
+import CardFilter from "./components/CardFilter"
+import CardListing from "./components/CardListing"
+import Dheader from "./components/Dheader"
 
 
-function App() {
+export default function App() {
 
 
   return (
-   <h1>l</h1>
+<> 
+  <Dheader/>
+  <main>
+    <CardFilter/>
+    <CardListing/>
+  </main>
+  
+  </>
   )
 }
-
-export default App

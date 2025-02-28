@@ -1,0 +1,42 @@
+:root {
+
+  --dcolor-bg-header: #55BC04;
+  --dcolor-bg-page: #C2C2C2;
+  --dcolor-bg-card: #fff;
+
+  --dcolor-placeholder: #C2C2C2;
+  --dcolor-btn: #55BC04;
+
+  --dcolor-border: #55BC04;
+
+  --dcolor-font-primary: #fff;
+  --dcolor-font-secundary: #6F6F6F;
+  --dcolor-font-tertiary: #C2C2C2;
+  --dcolor-font-quertenary: #55BC04;
+
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  
+
+}
+
+.d-container{
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+html, body {
+
+  background-color: var(--dcolor-bg-page);
+}
+
+
+.d-mt20 {
+  margin-top: 20px;
+}
