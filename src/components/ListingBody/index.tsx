@@ -1,17 +1,22 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ProductDTO } from '../../models/product';
 import CardFilter from '../CardFilter';
 import CardListing from '../CardListing';
 import './style.css'
 import * as productService  from '../../service/product'
+import { ContextCount } from '../../utils/context-listingBody';
 
 type QueryParams = {
   minValue: number;
   maxValue: number;
 }
 
+
 export default function ListingBody() {
+
+
+
 
   const [queryParams, setQueryParams] = useState<QueryParams>({
     minValue: Number.MIN_VALUE,
@@ -20,12 +25,13 @@ export default function ListingBody() {
 
 
 
+  const {setContextCount} = useContext(ContextCount);
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
 
   useEffect(() => {
     setProducts(productService.findByPrice(queryParams.minValue,queryParams.maxValue));
-    
+    setContextCount(products.length);
   }, [queryParams]);
 
   
@@ -34,8 +40,11 @@ export default function ListingBody() {
       minValue: newMinValue || Number.MIN_VALUE,
       maxValue: newMaxValue || Number.MAX_VALUE,
     });
+
   }
 
+  
+ 
 
   return (
     <>
