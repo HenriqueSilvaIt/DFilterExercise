@@ -40,3 +40,14 @@ html, body {
 .d-mt20 {
   margin-top: 20px;
 }
+
+.d-card-listing-section{
+  border-radius: 5px;
+  width: 960px;
+  padding: 10px 10px 5px 10px;
+  background-color: var(--dcolor-bg-card);
+  height: 408px;
+  height: 100%;
+  margin-bottom: 20px;
+  
+}

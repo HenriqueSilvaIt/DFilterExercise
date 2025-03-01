@@ -1,97 +1,58 @@
 
+import { useEffect, useState } from 'react';
 import { ProductDTO } from '../../models/product';
 import CardFilter from '../CardFilter';
 import CardListing from '../CardListing';
 import './style.css'
+import * as productService  from '../../service/product'
 
-
-
-
-const products: ProductDTO[] = [
-  {
-    id: 1,
-    name: "The Lord of the Rings",
-    price: 90.5,
-  },
-  {
-    id: 2,
-    name: "Smart TV",
-    price: 2190.0,
-  },
-  {
-    id: 7,
-    name: "PC Gamer X",
-    price: 1350.0,
-  },
-  {
-    id: 15,
-    name: "PC Gamer Weed",
-    price: 2200.0,
-  },
-  {
-    id: 21,
-    name: "PC Gamer Tx",
-    price: 1680.0,
-  },
-  {
-    id: 17,
-    name: "PC Gamer Turbo",
-    price: 1280.0,
-  },
-  {
-    id: 20,
-    name: "PC Gamer Tr",
-    price: 1650.0,
-  },
-  {
-    id: 9,
-    name: "PC Gamer Tera",
-    price: 1950.0,
-  },
-  {
-    id: 13,
-    name: "PC Gamer Plus",
-    price: 1350.0,
-  },
-  {
-    id: 11,
-    name: "PC Gamer Nitro",
-    price: 1450.0,
-  },
-  {
-    id: 23,
-    name: "PC Gamer Min",
-    price: 2250.0,
-  },
-  {
-    id: 16,
-    name: "PC Gamer Max",
-    price: 2340.0,
-  },
-  {
-    id: 18,
-    name: "PC Gamer Hot",
-    price: 1450.0,
-  },
-];
+type QueryParams = {
+  minValue: number;
+  maxValue: number;
+}
 
 export default function ListingBody() {
 
+  const [queryParams, setQueryParams] = useState<QueryParams>({
+    minValue: Number.MIN_VALUE,
+    maxValue: Number.MAX_VALUE
+  });
 
-return (
 
-  <main>
-    <CardFilter />
 
-    {
 
-      products.map(products =>
-        <CardListing products={products} />
+  const [products, setProducts] = useState<ProductDTO[]>([]);
 
-      )
-    }
+  useEffect(() => {
+    setProducts(productService.findByPrice(queryParams.minValue,queryParams.maxValue));
+    
+  }, [queryParams]);
 
-  </main>
+  
+  function handleSearch(newMinValue: number, newMaxValue: number) {
+    setQueryParams({
+      minValue: newMinValue || Number.MIN_VALUE,
+      maxValue: newMaxValue || Number.MAX_VALUE,
+    });
+  }
 
-);
+
+  return (
+    <>
+      <main>
+        <CardFilter onSearch={handleSearch} />
+                   <section className="d-card-listing-section d-container">
+
+          { /* sempre usa o map para renderizar quando  o objeto for uma coleção  de objeto*/
+
+            products.map(products =>
+              <CardListing key={products.id} products={products} />
+
+            )
+          }
+        </section>
+      </main>
+    </>
+
+  );
 }

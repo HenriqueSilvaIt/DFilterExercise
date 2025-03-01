@@ -1,15 +1,4 @@
 
-.d-card-listing {
-    height: 408px;
-    width: 960px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: var(--dcolor-bg-card);
-    margin-bottom: 20px;
-    height: 100%;
-    
-}
-
 .d-card-listing-details{
     width: 920px;
     height: 100%;
